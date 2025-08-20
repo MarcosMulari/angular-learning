@@ -1,0 +1,20 @@
+<div class="Container">
+  <div class="form-box">
+    <form #frm="ngForm" (ngSubmit)="somar()"> <!--. () = on way data bind */ -->
+      <h2>Calculadora</h2>
+
+      <label for="numero1">Número 1</label>
+      <input type="number" [(ngModel)]="numero1" name="numero1" id="numero1"> <!--. [()] = to way data bind */ -->
+
+      <label for="numero2">Número 2</label>
+      <input type="number" [(ngModel)]="numero2" name="numero2" id="numero2">
+
+      <button type="submit">Somar</button>
+    </form>
+    @if(resultado){
+      <div class="result-display">
+        <p>Resultado: <span>{{ resultado }}</span></p>
+      </div>
+    }
+  </div>
+</div>
