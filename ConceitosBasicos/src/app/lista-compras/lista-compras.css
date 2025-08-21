@@ -1,0 +1,139 @@
+/* Container geral */
+.supermercado-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: #f3f1eb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Cartão principal */
+.supermercado-card {
+  background-color: #fffaf3;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e3dc;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Título */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #3e3e3e;
+  margin-bottom: 24px;
+}
+
+/* Botão LISTA DE COMPRAS */
+.btn-lista {
+  display: block;
+  margin: 0 auto 20px auto;
+  background-color: #d8c7a3;
+  color: #3e3e3e;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-lista:hover {
+  background-color: #c4b48a;
+}
+
+/* Formulário */
+.add-item-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-item-form input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d4cfc3;
+  border-radius: 8px;
+  background-color: #fdfcf8;
+  font-size: 16px;
+  color: #333;
+}
+
+.add-item-form button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #d39e45;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-item-form button:hover {
+  background-color: #b97f2c;
+}
+
+/* Tabela */
+.shopping-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.shopping-table th,
+.shopping-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e6e2d8;
+}
+
+.shopping-table th {
+  color: #5a5243;
+  background-color: #f3ede2;
+}
+
+.shopping-table td {
+  color: #3e3e3e;
+}
+
+/* Checkbox */
+.shopping-table input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #a58f5d;
+}
+
+/* Botão excluir */
+.btn-excluir {
+  background-color: #ce5a4b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-excluir:hover {
+  background-color: #b14639;
+}
+
+/* Riscado quando comprado */
+.item-comprado {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .add-item-form {
+    flex-direction: column;
+  }
+
+  .add-item-form input,
+  .add-item-form button {
+    width: 100%;
+  }
+}

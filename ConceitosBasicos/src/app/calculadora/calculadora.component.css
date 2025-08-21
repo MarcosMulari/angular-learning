@@ -7,15 +7,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* O bloco principal é flex e sem limitação de altura */
-.Container {
-  display: flex;
-  justify-content: center;    /* centraliza horizontalmente */
-  align-items: center;
-  background: #fff;
-  padding: 2rem;
-  /* sem height / max-height -> cresce livremente */
-}
+
 .form-box {
   background-color: #fff;       /* fundo branco */
   border-radius: 8px;           /* bordas arredondadas */

@@ -1,1 +1,116 @@
-/* You can add global styles to this file, and also import other style files */
+/* Tema global */
+:root {
+  /* Fonte */
+  --font-family-base: 'Poppins', Arial, sans-serif;
+
+  /* Cores primárias */
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+
+  /* Cores secundárias */
+  --color-secondary: #6c757d;
+  --color-secondary-hover: #565e64;
+
+  /* Fundo e texto */
+  --color-bg: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-text: #333;
+
+  /* Bordas e espaçamentos */
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --spacing: 1rem;
+}
+
+/* Base para toda a aplicação */
+html, body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+
+
+.Container {
+  display: flex;                 /* ativa flexbox */
+  justify-content: center;       /* centraliza na horizontal */
+  align-items: center;           /* centraliza na vertical */
+  min-height: 100dvh;            /* ocupa altura da tela mas deixa crescer se precisar */
+  background: #f0f2f5;           /* cor de fundo */
+  padding: 2rem;                 /* espaçamento nas bordas */
+  box-sizing: border-box;
+}
+
+/* =========
+   Inputs
+=========== */
+.input-box {
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  font-family: var(--font-family-base);
+}
+
+
+.input-box:focus {
+  border-color: var(--primary-color);
+  background-color: #fff;
+}
+
+/* =========
+   Botões
+=========== */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  font-family: var(--font-family-base);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+
+/* =========
+   Cards
+=========== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: var(--spacing);
+}
+
+
+/* =========
+   Títulos
+=========== */
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; /* títulos mais fortes */
+}
+
+p, span, label, input, button {
+  font-weight: 400; /* texto normal */
+}

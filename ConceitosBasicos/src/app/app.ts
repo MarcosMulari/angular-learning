@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 
 import {CalculadoraComponent} from './calculadora/calculadora.component'
 
+import { ListaCompras } from './lista-compras/lista-compras';
+
 @Component({
   selector: 'app-root',
-  standalone : true,
-  imports: [CalculadoraComponent],
+  imports: [ListaCompras],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
