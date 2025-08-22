@@ -9,8 +9,8 @@
 html {
   @include mat.theme((
     color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: mat.$spring-green-palette,
+      tertiary: mat.$violet-palette,
     ),
     typography: Roboto,
     density: 0,
@@ -37,3 +37,48 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Faz color="primary" realmente pintar o toolbar no M3 */
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: var(--mat-sys-primary);
+  --mat-toolbar-container-text-color: var(--mat-sys-on-primary);
+}
+
+.mat-toolbar.tertiary {
+  --mat-toolbar-container-background-color: var(--mat-sys-tertiary);
+  --mat-toolbar-container-text-color: var(--mat-sys-on-tertiary);
+}
+
+
+.custom-toolbar {
+  padding: 0 16px;
+  min-height: 64px;
+
+}
+
+/* regra robusta: se existir wrapper interno, controlamos ele */
+.custom-toolbar {              /* cobre versões com/sem wrapper */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100%;
+}
+
+/* blocos esquerdo/direito */
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+
+}
+
+/* empurra o bloco da direita pro extremo direito mesmo se justify falhar */
+.toolbar-right {
+  margin-left: auto;   /* cinturão e suspensório :) */
+  gap: 12px;
+}
+
+/* tipografia simples do título */
+.company-name {
+  white-space: nowrap;
+}
