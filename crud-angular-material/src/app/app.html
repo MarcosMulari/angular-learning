@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-toolbar class="custom-toolbar" color="primary">
+    <div class="toolbar-left" color="primary">
+      <span class="company-name">Observador</span>
+    </div>
+
+    <div class="toolbar-right" color="primary">
+      <button mat-button routerLink="/consulta" routerLinkActive="router-link-active">
+        <mat-icon fontIcon="search"></mat-icon>Consulta</button>
+      <button mat-button routerLink="/cadastro" routerLinkActive="router-link-active">
+        <mat-icon fontIcon="feed"></mat-icon>Cadastro</button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<router-outlet></router-outlet>
