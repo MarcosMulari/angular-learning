@@ -38,16 +38,34 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* Faz color="primary" realmente pintar o toolbar no M3 */
-.mat-toolbar.mat-primary {
+
+.mt-20{
+  margin-top: 20px;
+}
+.mt-40{
+  margin-top: 40px;
+}
+.mt-60{
+  margin-top: 60px;
+}
+
+.ml-5{
+  margin-left: 5px
+}
+
+.full-width-formField .mat-mdc-text-field-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.mat-primary {
+  --mdc-filled-button-container-color: var(--mat-sys-primary);
+  --mdc-filled-button-label-text-color: var(--mat-sys-on-primary);
+
   --mat-toolbar-container-background-color: var(--mat-sys-primary);
   --mat-toolbar-container-text-color: var(--mat-sys-on-primary);
 }
 
-.mat-toolbar.tertiary {
-  --mat-toolbar-container-background-color: var(--mat-sys-tertiary);
-  --mat-toolbar-container-text-color: var(--mat-sys-on-tertiary);
-}
 
 
 .custom-toolbar {
