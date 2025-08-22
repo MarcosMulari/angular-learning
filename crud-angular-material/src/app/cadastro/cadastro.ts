@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input'
 
 import { Cliente } from './cliente'
+import { ClienteService } from '../clienteservice'
 
 
 @Component({
@@ -25,9 +26,12 @@ import { Cliente } from './cliente'
 })
 export class Cadastro {
   cliente: Cliente = Cliente.newClient();
+  constructor(private service: ClienteService) {
+
+
+  }
 
   cadastrar(): void {
-    console.log('Salvando cliente...');
-    console.log(this.cliente);
+    this.service.cadastrar(this.cliente) // aplica a lógica -> regra de services. Chama API, etc. Mais organização
   }
 }
