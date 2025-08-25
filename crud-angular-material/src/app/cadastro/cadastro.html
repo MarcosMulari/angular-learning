@@ -1,6 +1,6 @@
 <div fxLayout = "row" fxLayoutAlign= "center">
   <div fxLayout ="column" fxFlex="800px" class = "container-form">
-    <form class="mt-60" #clientsFrm = "ngForm" (ngSubmit)="cadastrar()">
+    <form class="mt-60" #clientsFrm = "ngForm" (ngSubmit)="salvar()">
       <mat-card class="card">
         <mat-card-header>
           <mat-card-title>Dados Pessoais</mat-card-title>
@@ -30,7 +30,8 @@
               <div fxLayout="column" fxFlex="400px">
                 <mat-form-field class="full-width-formField">
                   <mat-label> Celular: *</mat-label>
-                  <input type="text" placeholder="Ex: (XX) 9XXXX-XXXX" matInput [(ngModel)]="cliente.telefone" name="telefone">
+                  <input type="text" placeholder="Ex: (XX) 9XXXX-XXXX" matInput [(ngModel)]="cliente.telefone" name="telefone"
+                  mask="(00)00000-0000">
                 </mat-form-field>
               </div>
             </div>
@@ -39,7 +40,8 @@
               <div fxLayout="column" fxFlex="400px">
                 <mat-form-field class="full-width-formField">
                   <mat-label> CPF: *</mat-label>
-                  <input type="text" placeholder="Digite seu CPF" matInput [(ngModel)]="cliente.cpf" name="cpf">
+                  <input type="text" placeholder="Digite seu CPF" matInput [(ngModel)]="cliente.cpf" name="cpf"
+                  mask="000.000.000-00">
                 </mat-form-field>
               </div>
             </div>
@@ -48,20 +50,23 @@
               <div fxLayout="column" fxFlex="400px">
                 <mat-form-field class="full-width-formField">
                   <mat-label> Data Nascimento: *</mat-label>
-                  <input type="date" placeholder="Digite sua data de nascimento" matInput [(ngModel)]="cliente.dataNascimento" name="dataNascimento">
+                  <input type="date" placeholder="Digite sua data de nascimento" matInput [(ngModel)]="cliente.dataNascimento" name="dataNascimento"
+                  mask="00/00/0000">
                 </mat-form-field>
               </div>
             </div>
 
             <mat-card-actions>
+              @if(!atualizando){
               <button mat-flat-button color="primary" type="submit">
                 <mat-icon fontIcon="save"></mat-icon>
                 Cadastrar
-              </button>
+              </button>}
+              @else{
               <button mat-flat-button color="primary">
                 <mat-icon fontIcon="refresh"></mat-icon>
                 Atualizar
-              </button>
+              </button>}
               <button mat-flat-button color="accent" class = "ml-5">
                 <mat-icon fontIcon="backspace"></mat-icon>
                 Limpar
