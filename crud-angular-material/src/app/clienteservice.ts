@@ -20,7 +20,13 @@ export class ClienteService {
     localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(storage));
   }
 
-  obterStorage() : Cliente[]{
+  //f(x) que passa nome e retorna um array de clientes
+  pesquisarCliente(nome: string) : Cliente[]{
+    return this.obterStorage()
+  }
+
+  //f(x) que retorna todos os clientes
+  private obterStorage() : Cliente[]{
     const dbClientes = localStorage.getItem(ClienteService.REPO_CLIENTES)
     if (dbClientes)
       {
