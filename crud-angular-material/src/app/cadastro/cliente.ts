@@ -7,10 +7,10 @@ export class Cliente {
   dataNascimento?: string;
   email?: string;
   cpf?: string; // adicionado
+  deletando: boolean = false;
 
   static newClient() {
     const cliente = new Cliente();
-    cliente.id = uuid();
     return cliente;
   }
 }
