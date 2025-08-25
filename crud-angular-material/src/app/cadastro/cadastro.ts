@@ -15,6 +15,8 @@ import { v4 as uuid } from 'uuid';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
+import { Brasilapi } from '../brasilapi';
+import { Estado, Municipio } from '../brasilapi.models';
 
 
 @Component({
@@ -37,14 +39,21 @@ export class Cadastro implements OnInit{
 
   cliente: Cliente = Cliente.newClient();
   atualizando: boolean = false;
-  snack: MatSnackBar = inject(MatSnackBar)
+  snack: MatSnackBar = inject(MatSnackBar);
 
-  constructor(private service: ClienteService,
+  estados: Estado[] = [];
+  municipio: Municipio[] =[];
+
+  constructor(
+    private service: ClienteService,
+    private brasilService: Brasilapi,
+
     private route:ActivatedRoute,
     private router:Router
   ) {}
 
   ngOnInit(): void {
+
     this.route.queryParamMap.subscribe( (query: any) => { // tem que "tipar" o parametro, daria para usar dtos aqui?
       const params = query['params']
       const id = params['id']
@@ -59,9 +68,9 @@ export class Cadastro implements OnInit{
         else{
         this.cliente = Cliente.newClient()
         }
-
       }
     })
+    this.carregarUFs()
   }
 
   salvar(): void {
@@ -88,6 +97,19 @@ export class Cadastro implements OnInit{
     this.service.atualizar(cliente)
 
     this.SuccessMessage("Usuário atualizado com sucesso")
+  }
+
+  carregarUFs()
+  {
+    // Observable: avisa alteracao; subscriver: recebe -> confirmado, é por ser requisicao assincrona que é observable
+    this.brasilService.listarUFs().subscribe({
+      next: listaEstados => this.estados = listaEstados,
+      error: erro => console.log("Ocorreu um erro", erro)
+    })
+  }
+
+  carregarMunicipios(uf : string){
+    return this.brasilService.listarMunicipios
   }
 
   SuccessMessage(mensagem:string){
