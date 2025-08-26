@@ -12,20 +12,24 @@
       formControlName="nome"
       placeholder="Restaurantes, parques, praias, etc..."
       class="w-full p-3 border border-gray-700 rounded-lg shodow-sm focus:ring focus:ring-blue-700">
+      @if(IsCampoInvalido('nome')){
+    <span class="text-red-600 text-sm">Obrigatório *</span>}
     </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 font-medium mb-1">Descrição</label>
-      <textarea
-      type="text"
-      id="descricao"
-      name="descricao"
-      formControlName="descricao"
-      class="w-full p-3 border border-gray-700 rounded-lg shodow-sm focus:ring focus:ring-blue-700">
-    </textarea>
 
-    <span class="text-gray-500 text-sm"te>(*) Campo Obrigatório</span>
+    <div class="mb-4">
+      <label class="block text-gray-700 font-medium mb-1">Descrição*</label>
+      <textarea
+        type="text"
+        id="descricao"
+        name="descricao"
+        formControlName="descricao"
+        class="w-full p-3 border border-gray-700 rounded-lg shodow-sm focus:ring focus:ring-blue-700">
+      </textarea>
+      @if(IsCampoInvalido('descricao')){
+      <span class="text-red-600 text-sm" >Obrigatório *</span>}
+    </div>
 
     <button type="submit" class="w-full bg-blue-900 text-white font-semibold p-3 rounded shadow hover:bg-blue-950"> Adicionar</button>
-    </div>
+
   </form>
 </div>
