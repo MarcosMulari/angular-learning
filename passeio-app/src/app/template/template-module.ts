@@ -12,8 +12,7 @@ import { CategoriasRoutingModule } from '../categorias/categorias-routing-module
   ],
   imports: [
     CommonModule,
-    TemplateRoutingModule,
-    CategoriasRoutingModule
+    TemplateRoutingModule
   ]
 })
 export class TemplateModule { }
