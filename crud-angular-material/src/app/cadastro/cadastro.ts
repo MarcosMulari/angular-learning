@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSelectChange, MatSelectModule } from '@angular/material/select'
 import { OnInit } from '@angular/core';
 
 import { Cliente } from './cliente'
@@ -17,18 +18,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask'
 import { Brasilapi } from '../brasilapi';
 import { Estado, Municipio } from '../brasilapi.models';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-cadastro',
   imports: [
     FlexLayoutModule,
-    MatCardModule,
     FormsModule,
+    CommonModule,
+
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatSelectModule,
     NgxMaskDirective
   ],
   providers: provideNgxMask(),
@@ -42,7 +47,7 @@ export class Cadastro implements OnInit{
   snack: MatSnackBar = inject(MatSnackBar);
 
   estados: Estado[] = [];
-  municipio: Municipio[] =[];
+  municipios: Municipio[] =[];
 
   constructor(
     private service: ClienteService,
@@ -62,6 +67,10 @@ export class Cadastro implements OnInit{
         if (clienteEncontrado){
           this.atualizando = true;
           this.cliente = clienteEncontrado;
+          if (this.cliente.uf){
+            const event = {value: this.cliente.uf}
+            this.carregarMunicipios(event as MatSelectChange);
+          }
 
         }
         // nao necessario pq o ja foi instanciado na tela
@@ -108,8 +117,12 @@ export class Cadastro implements OnInit{
     })
   }
 
-  carregarMunicipios(uf : string){
-    return this.brasilService.listarMunicipios
+  carregarMunicipios(event : MatSelectChange){
+    const ufSelecionada = event.value;
+    this.brasilService.listarMunicipios(ufSelecionada).subscribe({
+      next: listaMunicipios => this.municipios = listaMunicipios,
+      error: erro => console.log("Ocorreu um erro", erro)
+    })
   }
 
   SuccessMessage(mensagem:string){
