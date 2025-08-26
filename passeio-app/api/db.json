@@ -1,0 +1,14 @@
+{
+  "categorias": [
+    {
+      "nome": "Shopping",
+      "descricao": "Lugares para cantar, dançar, comer e, na maioria das vezes, possui cinema.",
+      "id": "2"
+    },
+    {
+      "id": "97fc",
+      "nome": "Restaurantes",
+      "descricao": "Lugares para se alimentar"
+    }
+  ]
+}
