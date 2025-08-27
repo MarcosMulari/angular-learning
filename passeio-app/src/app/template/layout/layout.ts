@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutProps } from './layout-props';
 import { ActivatedRoute, Router } from '@angular/router';
+import { filter, map } from "rxjs"
 
 @Component({
   selector: 'app-layout',
@@ -17,7 +18,11 @@ export class Layout {
   ){}
 
   ngOnInit() : void {
-    this.props = this.getTitle()
+    this.router.events
+      .pipe(
+        filter(() => this.activatedRoute.firstChild !== null),
+        map( () => this.getTitle())
+      ).subscribe(layoutProps => this.props = layoutProps)
   }
 
   getTitle() : LayoutProps {
