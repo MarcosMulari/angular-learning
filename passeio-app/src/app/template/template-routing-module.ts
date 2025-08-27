@@ -1,3 +1,4 @@
+import { LugaresModule } from './../lugares/lugares-module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Layout } from './layout/layout';
@@ -10,7 +11,14 @@ const routes: Routes = [
       {
         path: 'categorias',
         loadChildren: () => import('../categorias/categorias-module')
-          .then(m => m.CategoriasModule)
+          .then(m => m.CategoriasModule),
+          pathMatch:'full'
+      },
+      {
+        path: 'lugares',
+        loadChildren: () => import('../lugares/lugares-module')
+          .then(m => m.LugaresModule),
+          pathMatch:'full'
       }
     ]
   }

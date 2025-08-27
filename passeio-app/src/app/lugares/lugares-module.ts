@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CategoriasRoutingModule } from './categorias-routing-module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Categoria } from './categoria/categoria';
+
+import { LugaresRoutingModule } from './lugares-routing-module';
+import { Lugar } from './lugar/lugar';
 
 
 @NgModule({
   declarations: [
-    Categoria
+    Lugar
   ],
   imports: [
     CommonModule,
-    CategoriasRoutingModule,
+    LugaresRoutingModule,
     ReactiveFormsModule
   ]
 })
-export class CategoriasModule { }
+export class LugaresModule { }
