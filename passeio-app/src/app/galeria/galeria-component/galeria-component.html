@@ -1,0 +1,49 @@
+<!-- Filtro -->
+<form #frm="ngForm" (ngSubmit)="filtrarLugares()">
+  <div class="p-4 bg-white shadow">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+
+      <!-- Filtro por nome -->
+      <input
+        type="text"
+        placeholder="Pesquisar pelo nome do lugar"
+        [(ngModel)]="nomeFiltro"
+        name="nomeFiltro"
+        class="w-full p-3 border border-gray-700 rounded-lg shadow-sm focus:ring focus:ring-blue-700">
+
+      <!-- Filtro por categoria -->
+      <select
+        [(ngModel)]="categoriaFiltro"
+        name="categoriaFiltro"
+        class="w-full p-3 border border-gray-700 rounded-lg shadow-sm focus:ring focus:ring-blue-700">
+
+        <option value="all" selected>Todas as Categorias</option>
+        <option *ngFor="let cat of categoriasFiltro" [value]="cat.nome">{{ cat.nome }}</option>
+      </select>
+
+      <button type="submit" class="w-full p-3 bg-blue-950 border border-gray-700 rounded-lg text-white font-mono font-semibold" >
+        FILTRAR
+      </button>
+
+    </div>
+  </div>
+</form>
+
+
+<!-- Listagem -->
+
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="bg-white shadow rounded overflow-hidden" *ngFor="let lugar of lugares">
+    <img [src]="lugar.urlFoto" [alt]="lugar.nome" class="w-full h-60 object-cover">
+    <div class="p-3">
+      <h3 class="font-semibold text-lg">{{ lugar.nome }}</h3>
+      <p class="text-gray-600 text-sm">{{ lugar.localizacao }}</p>
+      <p class="text-gray-500 text-sm italic">{{ lugar.categoria }}</p>
+      <div class="mt-2 flex item-center">
+        <span class="text-yellow-500" [innerHTML]="getTotalEstrelas(lugar)"></span>
+
+      </div>
+    </div>
+  </div>
+</div>
+

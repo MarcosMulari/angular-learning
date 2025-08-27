@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LugarObject } from './lugar-object';
 
@@ -30,5 +30,22 @@ export class LugaresService {
 
   delete(id: string | number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  filter(nome: string, categoria: string): Observable<LugarObject[]>{
+    let filters = new HttpParams();
+
+    if (nome){
+      filters = filters.set('nome_like', nome)
+    }
+    if (categoria === "all"){
+      filters = filters.set('categoria', '')
+    }
+    else if (categoria){
+      filters = filters.set('categoria', categoria)
+    }
+    return this.http.get<LugarObject[]>(this.apiUrl, {
+      params: filters
+    });
   }
 }

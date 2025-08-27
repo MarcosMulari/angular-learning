@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LayoutProps } from './layout-props';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -7,5 +9,26 @@ import { Component } from '@angular/core';
   styleUrl: './layout.scss'
 })
 export class Layout {
+  props: LayoutProps = { titulo:"", subTitulo:""}
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ){}
+
+  ngOnInit() : void {
+    this.props = this.getTitle()
+  }
+
+  getTitle() : LayoutProps {
+    let childRoute = this.activatedRoute.firstChild
+
+    while(childRoute?.firstChild){
+      childRoute = childRoute.firstChild
+    }
+
+    return childRoute?.snapshot.data as LayoutProps
+
+  }
 
 }
