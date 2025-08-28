@@ -1,0 +1,47 @@
+{
+  "categorias": [
+    {
+      "nome": "Shopping",
+      "descricao": "Lugares para cantar, dançar, comer e, na maioria das vezes, possui cinema.",
+      "id": "2"
+    },
+    {
+      "id": "97fc",
+      "nome": "Restaurantes",
+      "descricao": "Lugares para se alimentar"
+    },
+    {
+      "id": "8fc7",
+      "nome": "Hotel",
+      "descricao": "Quartos para pernoitar a demanda."
+    },
+    {
+      "id": "da7e",
+      "nome": "Praias",
+      "descricao": "Lugar para curtir o mar e tomar uma gelada."
+    },
+    {
+      "id": "af53",
+      "nome": "Sorveterias",
+      "descricao": "Espaço para se refrescar com polpas e sucos congelados em dias calorosos."
+    }
+  ],
+  "lugares": [
+    {
+      "id": "3640",
+      "nome": "Sorvete",
+      "categoria": "Sorveterias",
+      "localizacao": "sorvete",
+      "urlFoto": "https://s2-g1.glbimg.com/izWpH4vg2L9jUEFTRDI5bk2Lj5I=/0x0:5835x3334/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/G/S/q68cTFT7WNNiAODaogpQ/3-midias-texto-12.png",
+      "avaliacao": 5
+    },
+    {
+      "id": "17aa",
+      "nome": "Praia",
+      "categoria": "Praias",
+      "localizacao": "RJ",
+      "urlFoto": "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg",
+      "avaliacao": 5
+    }
+  ]
+}
