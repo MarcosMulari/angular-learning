@@ -1,3 +1,5 @@
+import { auth } from './../auth-config';
+import { AuthgoogleService } from './../authgoogle-service';
 import { Component } from '@angular/core';
 import { Profile } from './profile-model';
 import { Router } from '@angular/router';
@@ -12,7 +14,8 @@ export class LandingpageComponent {
   profile: Profile |  undefined = {name: "Marcos", email:"mvrmulari@gmail.com"}
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authGoogle: AuthgoogleService
   ){
 
   }
@@ -22,10 +25,12 @@ export class LandingpageComponent {
   }
 
   authWithGoogle(){
-
+    this.authGoogle.login()
   }
 
   isLoggedIn() : boolean {
+    this.profile = this.authGoogle.getLoggedProfile()
+    console.log("Dados Google", this.profile)
     return !!this.profile; // !! verifica se existe e retorna bool
   }
 

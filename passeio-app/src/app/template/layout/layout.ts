@@ -22,7 +22,7 @@ export class Layout {
       .pipe(
         filter(() => this.activatedRoute.firstChild !== null),
         map( () => this.getTitle())
-      ).subscribe( (layoutProps : LayoutProps) => this.props = layoutProps)
+      ).subscribe(layoutProps => this.props = layoutProps)
   }
 
   getTitle() : LayoutProps {

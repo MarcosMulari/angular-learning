@@ -7,6 +7,8 @@ import { App } from './app';
 import {provideHttpClient, withFetch} from '@angular/common/http';
 import { LandingpageComponent } from './landingpage-component/landingpage-component'
 
+import { provideOAuthClient } from 'angular-oauth2-oidc'
+
 @NgModule({
   declarations: [
     App,
@@ -18,7 +20,8 @@ import { LandingpageComponent } from './landingpage-component/landingpage-compon
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideOAuthClient()
   ],
   bootstrap: [App]
 })
