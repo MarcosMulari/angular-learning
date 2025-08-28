@@ -3,12 +3,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LugarObject } from './lugar-object';
 
+import { environment } from '../../environments/environment'
+
 @Injectable({
   providedIn: 'root'
 })
 export class LugaresService {
 
-  private apiUrl = 'http://localhost:3000/lugares'; // 👈 rota no seu backend/json-server
+  private apiUrl = environment.apiUrl + '/lugares';
 
   constructor(private http: HttpClient) {}
 
