@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutProps } from './layout-props';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from "rxjs"
+import { OAuthService } from 'angular-oauth2-oidc';
+import { AuthgoogleService } from '../../authgoogle-service';
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +16,8 @@ export class Layout {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private googleAuth: AuthgoogleService
   ){}
 
   ngOnInit() : void {
@@ -34,6 +37,10 @@ export class Layout {
 
     return childRoute?.snapshot.data as LayoutProps
 
+  }
+
+  logout(){
+    this.googleAuth.logout()
   }
 
 }
