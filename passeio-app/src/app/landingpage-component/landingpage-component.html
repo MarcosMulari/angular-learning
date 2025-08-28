@@ -1,0 +1,22 @@
+<div class="bg-gradient-to-r from-gray-900 to-blue-800 text-white min-h-screen flex flex-col justify-center items-center" >
+
+  <div class="text-center px-6">
+    <h1 class="text-4xl font-bold mb-4">Web Design é minha paixão</h1>
+    <p class="text-lg mb-6">Explore fotos, registre experiências e viva!</p>
+
+    <div>
+      @if(isLoggedIn()){
+      <button (click)="goToPictures();"
+      class="rounded-lg pt-1 pb-1 pr-2 pl-2 bg-white bg-opacity-20 hover:bg-pink-600 hover:bg-opacity-50 hover">
+      Olá {{profile?.name}}, clique aqui para aproveitar o site
+      </button>}
+      @else{
+      <button (click)="authWithGoogle();"
+      class="rounded-lg pt-1 pb-1 pr-2 pl-2 bg-white bg-opacity-20 hover:bg-pink-600 hover:bg-opacity-50 hover">
+      <img width="50px" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png">
+      </button>
+      }
+    </div>
+  </div>
+
+</div>

@@ -25,12 +25,14 @@ private categoriaService: CategoriaService
 }
 
   ngOnInit(): void {
-    this.categoriaService.getAll().subscribe(categorias => this.categoriasFiltro = categorias)
+    this.categoriaService.getAll().subscribe(categorias => this.categoriasFiltro = categorias);
 
-    this.lugarService.getAll().subscribe(lugaresResposta => this.lugares = lugaresResposta)
-
-    this.todosOsLugares = this.lugares
+    this.lugarService.getAll().subscribe(lugaresResposta => {
+      this.lugares = lugaresResposta;
+      this.todosOsLugares = lugaresResposta;
+    });
   }
+
 
   filtrarLugares(){ this.lugarService.filter(this.nomeFiltro, this.categoriaFiltro).subscribe(lugaresFiltrados => this.lugares = lugaresFiltrados) }
 

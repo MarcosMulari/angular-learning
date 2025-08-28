@@ -32,20 +32,20 @@ export class LugaresService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  filter(nome: string, categoria: string): Observable<LugarObject[]>{
+  filter(nome: string, categoria: string): Observable<LugarObject[]> {
     let filters = new HttpParams();
 
-    if (nome){
-      filters = filters.set('nome_like', nome)
+    if (nome) {
+      filters = filters.set('nome_like', nome);
     }
-    if (categoria === "all"){
-      filters = filters.set('categoria', '')
+
+    if (categoria && categoria !== "all") {
+      filters = filters.set('categoria', categoria);
     }
-    else if (categoria){
-      filters = filters.set('categoria', categoria)
-    }
-    return this.http.get<LugarObject[]>(this.apiUrl, {
-      params: filters
-    });
+
+    return this.http.get<LugarObject[]>(this.apiUrl, { params: filters });
   }
+
+
+
 }
